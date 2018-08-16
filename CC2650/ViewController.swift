@@ -9,6 +9,36 @@
 import UIKit
 import CoreBluetooth
 
+let svcHumidity = CBUUID.init(string: "F000AA20-0451-4000-B000-000000000000")
+let svcTemperature = CBUUID.init(string: "F000AA00-0451-4000-B000-000000000000")
+let svcLight = CBUUID.init(string: "F000AA70-0451-4000-B000-000000000000")
+let svcAccelerometer = CBUUID.init(string: "F000AA10-0451-4000-B000-000000000000")
+let svcBarometer = CBUUID.init(string: "F000AA40-0451-4000-B000-000000000000")
+let svcMovement = CBUUID.init(string: "F000AA80-0451-4000-B000-000000000000")
+let svcMagnetometer = CBUUID.init(string: "F000AA30-0451-4000-B000-000000000000")
+
+let temperData = CBUUID.init(string: "F000AA01-0451-4000-B000-000000000000")
+let temperConfig = CBUUID.init(string: "F000AA02-0451-4000-B000-000000000000")
+
+let accelerometerData = CBUUID.init(string: "F000AA11-0451-4000-B000-000000000000")
+let accelerometerConfig = CBUUID.init(string: "F000AA12-0451-4000-B000-000000000000")
+
+let magnetometerData = CBUUID.init(string: "F000AA31-0451-4000-B000-000000000000")
+let magnetometerConfig = CBUUID.init(string: "F000AA32-0451-4000-B000-000000000000")
+
+let barometerData = CBUUID.init(string: "F000AA41-0451-4000-B000-000000000000")
+let barometerConfig = CBUUID.init(string: "F000AA42-0451-4000-B000-000000000000")
+
+let movementData = CBUUID.init(string: "F000AA81-0451-4000-B000-000000000000")
+let movementConfig = CBUUID.init(string: "F000AA82-0451-4000-B000-000000000000")
+let movementPeriod = CBUUID.init(string: "F000AA83-0451-4000-B000-000000000000")
+
+let charHumidityData = CBUUID.init(string: "F000AA21-0451-4000-B000-000000000000" )
+let charHumidityConfig = CBUUID.init(string: "F000AA22-0451-4000-B000-000000000000")
+
+let charLightConfig = CBUUID.init(string: "F000AA72-0451-4000-B000-000000000000")
+let charLightData = CBUUID.init(string: "F000AA71-0451-4000-B000-000000000000")
+
 
 class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
     
@@ -57,5 +87,57 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         peripheral.delegate = self
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
+        if let services = peripheral.services {
+            for svc in services {
+                if svc.uuid == svcLight {
+                    print (svc.uuid.uuidString)
+                    peripheral.discoverCharacteristics(nil, for: svc)
+                }
+                if svc.uuid == svcHumidity{
+                    print(svc.uuid.uuidString)
+                    peripheral.discoverCharacteristics(nil, for: svc)
+                }
+                if svc.uuid == svcBarometer{
+                    print(svc.uuid.uuidString)
+                    peripheral.discoverCharacteristics(nil, for: svc)
+                }
+                if svc.uuid == svcMovement{
+                    print(svc.uuid.uuidString)
+                    peripheral.discoverCharacteristics(nil, for: svc)
+                }
+                if svc.uuid == svcTemperature{
+                    print(svc.uuid.uuidString)
+                    peripheral.discoverCharacteristics(nil, for: svc)
+                }
+                
+            }
+            
+        }
+    }
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        if let chars = service.characteristics {
+            for char in chars {
+                print (char.uuid.uuidString)
+                if char.uuid == charHumidityConfig{
+                    if char.properties.contains(CBCharacteristicProperties.writeWithoutResponse){
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withoutResponse)
+                    }
+                    else{
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withResponse)
+                    }
+                }
+                else if char.uuid == charHumidityData{
+                    checkHumidity(curChar: char)
+                }
+                    //TEMPERATURA
+                else if char.uuid == temperConfig {
+                    if char.properties.contains(CBCharacteristicProperties.writeWithoutResponse) {
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withoutResponse)
+                    }
+                    else {
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withResponse)
+                    }
+                }
 }
-
+}
