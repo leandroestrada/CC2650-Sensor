@@ -139,5 +139,82 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                         peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withResponse)
                     }
                 }
-}
+                    //GIROSCOPIO
+                else if char.uuid == movementConfig{
+                    
+                    // FF - with WOM
+                    // 7F - all sensors on, 03 - 16 G
+                    let bytes : [UInt8] = [ 0x7F, 0x03 ]
+                    let data = Data(bytes:bytes)
+                    
+                    peripheral.writeValue(data, for: char, type: CBCharacteristicWriteType.withResponse)
+                    
+                }
+                else if char.uuid == movementPeriod {
+                    print ("Changing period")
+                    let bytes : [UInt8] = [ currentPeriod ]
+                    let data = Data(bytes:bytes)
+                    peripheral.writeValue(data, for: char, type: CBCharacteristicWriteType.withResponse)
+                }
+                    
+                else if char.uuid == movementData{
+                    checkMovement(curChar: char)
+                }
+                    //                else if char.uuid == gyroscopeData {
+                    //                    checkGyroscope(curChar: char)
+                    //                }
+                    
+                    //BAROMETRO
+                else if char.uuid == barometerData{
+                    if char.properties.contains(CBCharacteristicProperties.writeWithoutResponse){
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withoutResponse)
+                    }
+                    else{
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withResponse)
+                    }
+                }
+                    //LUZ
+                else if char.uuid == charLightConfig {
+                    if char.properties.contains(CBCharacteristicProperties.writeWithoutResponse) {
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withoutResponse)
+                    }
+                    else {
+                        peripheral.writeValue(Data.init(bytes: [01]), for: char, type: CBCharacteristicWriteType.withResponse)
+                    }
+                }
+                else if char.uuid == charLightData {
+                    checkLight(curChar: char)
+                }
+            }
+        }
+    }
+    
+    //*************************************INTERVALS********************************************
+    
+    
+    func checkLight(curChar : CBCharacteristic) {
+        Timer.scheduledTimer(withTimeInterval: pickerSelecionado, repeats: true) { (timer) in
+            self.myPeripheral!.readValue(for: curChar)
+            print(self.pickerSelecionado)
+        }
+    }
+    
+    
+    func checkMovement(curChar : CBCharacteristic){
+        Timer.scheduledTimer(withTimeInterval: pickerSelecionado, repeats: true) { (timer) in
+            self.myPeripheral!.readValue(for: curChar)
+            print(self.pickerSelecionado)
+            
+        }
+    }
+    
+    func checkHumidity(curChar : CBCharacteristic){
+        Timer.scheduledTimer(withTimeInterval: pickerSelecionado, repeats: true) { (timer) in
+            self.myPeripheral!.readValue(for: curChar)
+            print(self.pickerSelecionado)
+            
+        }
+    }
+    
+    
 }
