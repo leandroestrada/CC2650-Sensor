@@ -8,6 +8,9 @@
 
 import UIKit
 import CoreBluetooth
+import Foundation
+import AVFoundation
+
 
 let svcHumidity = CBUUID.init(string: "F000AA20-0451-4000-B000-000000000000")
 let svcTemperature = CBUUID.init(string: "F000AA00-0451-4000-B000-000000000000")
@@ -189,29 +192,47 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         }
     }
     
+    //**********************LUZ********************************
+    
+    
+    
+    func luxConvert(value : Data) -> Double {
+        let rawData = dataToUnsignedBytes16(value: value)
+        var e :UInt16 = 0
+        var m :UInt16 = 0
+        
+        m = rawData[0] & 0x0FFF;
+        e = (rawData[0] & 0xF000) >> 12;
+        
+        /** e on 4 bits stored in a 16 bit unsigned => it can store 2 << (e - 1) with e < 16 */
+        e = (e == 0) ? 1 : 2 << (e - 1);
+        
+        return Double(m) * (0.01 * Double(e));
+    }
+    
     //*************************************INTERVALS********************************************
     
     
     func checkLight(curChar : CBCharacteristic) {
-        Timer.scheduledTimer(withTimeInterval: pickerSelecionado, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
             self.myPeripheral!.readValue(for: curChar)
-            print(self.pickerSelecionado)
+         
         }
     }
     
     
     func checkMovement(curChar : CBCharacteristic){
-        Timer.scheduledTimer(withTimeInterval: pickerSelecionado, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
             self.myPeripheral!.readValue(for: curChar)
-            print(self.pickerSelecionado)
+           
             
         }
     }
     
     func checkHumidity(curChar : CBCharacteristic){
-        Timer.scheduledTimer(withTimeInterval: pickerSelecionado, repeats: true) { (timer) in
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (timer) in
             self.myPeripheral!.readValue(for: curChar)
-            print(self.pickerSelecionado)
+           
             
         }
     }

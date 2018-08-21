@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B239A95212CBF2C00DA5E5F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B239A94212CBF2C00DA5E5F /* AVFoundation.framework */; };
 		8B51258B2125083600F66E5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51258A2125083600F66E5B /* AppDelegate.swift */; };
 		8B51258D2125083600F66E5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51258C2125083600F66E5B /* ViewController.swift */; };
 		8B5125902125083600F66E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B51258E2125083600F66E5B /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B239A94212CBF2C00DA5E5F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8B5125872125083600F66E5B /* CC2650.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC2650.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B51258A2125083600F66E5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B51258C2125083600F66E5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B239A95212CBF2C00DA5E5F /* AVFoundation.framework in Frameworks */,
 				8B5125BA212508FD00F66E5B /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +135,7 @@
 		8B5125B8212508FD00F66E5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B239A94212CBF2C00DA5E5F /* AVFoundation.framework */,
 				8B5125B9212508FD00F66E5B /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
