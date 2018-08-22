@@ -192,6 +192,38 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         }
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        print ("wrote value")
+    }
+    
+    func dataToUnsignedBytes16(value : Data) -> [UInt16] {
+        let count = value.count
+        var array = [UInt16](repeating: 0, count: count)
+        (value as NSData).getBytes(&array, length:count * MemoryLayout<UInt16>.size)
+        return array
+    }
+    
+    func dataToSignedBytes16(value : NSData) -> [Int16] {
+        let count = value.length
+        var array = [Int16](repeating: 0, count: count)
+        value.getBytes(&array, length:count * MemoryLayout<Int16>.size)
+        return array
+    }
+    
+    func dataToUnsignedBytes16(value : NSData) -> [UInt16] {
+        let count = value.length
+        var array = [UInt16](repeating: 0, count: count)
+        value.getBytes(&array, length:count * MemoryLayout<UInt16>.size)
+        return array
+    }
+    
+    func dataToSignedBytes8(value : NSData) -> [Int8] {
+        let count = value.length
+        var array = [Int8](repeating: 0, count: count)
+        value.getBytes(&array, length:count * MemoryLayout<Int8>.size)
+        return array
+    }
+    
     //**********************LUZ********************************
     
     
