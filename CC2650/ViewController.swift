@@ -242,6 +242,48 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         return Double(m) * (0.01 * Double(e));
     }
     
+    //********************MAGNETOMETRO************************
+    
+    var xMagVal: Double = 0
+    var yMagVal: Double = 0
+    var zMagVal: Double = 0
+    
+    func getMagnetometerData(value: NSData) -> [Double] {
+        let dataFromSensor = dataToSignedBytes16(value: value)
+        let xVal = Double(dataFromSensor[0]) * 2000 / 65536 * -1
+        let yVal = Double(dataFromSensor[1]) * 2000 / 65536 * -1
+        let zVal = Double(dataFromSensor[2]) * 2000 / 65536
+        
+        return [xVal, yVal, zVal]
+    }
+    //**********************UMIDADE**************************
+
+    var tempVal1: Double = 0
+    var humVal1: Double = 0
+    
+    func getRelativeHumidity(value: NSData) -> [Double] {
+        let dataFromSensor = dataToUnsignedBytes16(value: value)
+        let humidity = Double(-6 + 125/65536 * Double(dataFromSensor[1]))
+        let temperature = Double(-40 + ((165  * Double(dataFromSensor[0])) / 65536.0))
+        //return [humidity,temperature]
+        
+        //let humTemp = [humidity, temperature]
+        humTemp = [humidity, temperature]
+        umidVal = humTemp[0]
+        if umidVal < 100.00{
+            umidValC = Int(humTemp[0])
+        }
+        //Para evitar o -40
+        tempVal = humTemp[1]
+        if tempVal > 0{
+            tempVal1 = tempVal
+        }
+        tempValC = Int(humTemp[1])
+        
+        return humTemp
+        
+    }
+    
     //*************************************INTERVALS********************************************
     
     
