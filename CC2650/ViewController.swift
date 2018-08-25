@@ -313,3 +313,26 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     
 }
+
+extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return time[row]
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return time.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        timeTextField.text = time[row]
+        pickerSelecionado = Double(timeTextField.text!)!
+        print(pickerSelecionado)
+        self.view.endEditing(true)
+    }
+}
+
