@@ -16,6 +16,7 @@
 		8B5125A02125083E00F66E5B /* CC2650Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51259F2125083E00F66E5B /* CC2650Tests.swift */; };
 		8B5125AB2125083E00F66E5B /* CC2650UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5125AA2125083E00F66E5B /* CC2650UITests.swift */; };
 		8B5125BA212508FD00F66E5B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5125B9212508FD00F66E5B /* CoreBluetooth.framework */; };
+		8B6FDD332134D25C005A23F6 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDD322134D25C005A23F6 /* UIButtonExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8B5125AA2125083E00F66E5B /* CC2650UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CC2650UITests.swift; sourceTree = "<group>"; };
 		8B5125AC2125083E00F66E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B5125B9212508FD00F66E5B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		8B6FDD322134D25C005A23F6 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		8B5125892125083600F66E5B /* CC2650 */ = {
 			isa = PBXGroup;
 			children = (
+				8B6FDD322134D25C005A23F6 /* UIButtonExtension.swift */,
 				8B51258A2125083600F66E5B /* AppDelegate.swift */,
 				8B51258C2125083600F66E5B /* ViewController.swift */,
 				8B51258E2125083600F66E5B /* Main.storyboard */,
@@ -274,6 +277,7 @@
 			files = (
 				8B51258D2125083600F66E5B /* ViewController.swift in Sources */,
 				8B51258B2125083600F66E5B /* AppDelegate.swift in Sources */,
+				8B6FDD332134D25C005A23F6 /* UIButtonExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
