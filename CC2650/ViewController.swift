@@ -289,6 +289,25 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         return humTemp
         
     }
+    //********************* GIROSCOPIO**********************
+    var dadosGiro: [Double] = []
+    var dadosGiroY: Double?
+    var dadosGiroX: Double?
+    var dadosGiroZ: Double?
+    
+    func getGyroscopeData(value: NSData) -> [Double] {
+        let dataFromSensor = dataToSignedBytes16(value: value)
+        let yVal = Double(dataFromSensor[0]) * 500 / 65536 * -1
+        let xVal = Double(dataFromSensor[1]) * 500 / 65536
+        let zVal = Double(dataFromSensor[2]) * 500 / 65536
+        //return [xVal, yVal, zVal]
+        dadosGiro = [yVal, xVal, zVal]
+        //dadosGiroY = dadosGiro[0]
+        //dadosGiroX = dadosGiro[1]
+        //dadosGiroZ = dadosGiro[2]
+        //return dadosGiro
+        return [xVal, yVal, zVal]
+    }
     
     //*************************************INTERVALS********************************************
     
