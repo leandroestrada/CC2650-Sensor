@@ -56,6 +56,12 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         // Dispose of any resources that can be recreated.
     }
     
+    var humTemp: [Double] = []
+    var second: [Double] = []
+    var umidVal: Double = 0
+    var umidValC: Int = 0
+    var tempVal: Double = 0
+    var tempValC: Int = 0
     var centralManager: CBCentralManager!
     var myPeripheral: CBPeripheral!
     @IBOutlet var lightText: UIView!
@@ -309,6 +315,17 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
            
             
         }
+    }
+    
+    func ISOStringFromDateOdata(date: Date) -> String {
+        let timezone = "UTC"
+        let locale = "pt_BR_POSIX"
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: locale) as Locale?
+        dateFormatter.timeZone = NSTimeZone(abbreviation: timezone)! as TimeZone
+        //dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        dateFormatter.dateFormat = "yyyyMMddTHHmmssSSS"
+        return dateFormatter.string(from: date as Date)
     }
     
     
