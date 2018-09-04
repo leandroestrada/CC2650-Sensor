@@ -17,6 +17,7 @@
 		8B5125AB2125083E00F66E5B /* CC2650UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5125AA2125083E00F66E5B /* CC2650UITests.swift */; };
 		8B5125BA212508FD00F66E5B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B5125B9212508FD00F66E5B /* CoreBluetooth.framework */; };
 		8B6FDD332134D25C005A23F6 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6FDD322134D25C005A23F6 /* UIButtonExtension.swift */; };
+		8BE290EE213F066A00734826 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE290ED213F066A00734826 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8B5125AC2125083E00F66E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B5125B9212508FD00F66E5B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		8B6FDD322134D25C005A23F6 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		8BE290ED213F066A00734826 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				8B6FDD322134D25C005A23F6 /* UIButtonExtension.swift */,
+				8BE290ED213F066A00734826 /* Utils.swift */,
 				8B51258A2125083600F66E5B /* AppDelegate.swift */,
 				8B51258C2125083600F66E5B /* ViewController.swift */,
 				8B51258E2125083600F66E5B /* Main.storyboard */,
@@ -278,6 +281,7 @@
 				8B51258D2125083600F66E5B /* ViewController.swift in Sources */,
 				8B51258B2125083600F66E5B /* AppDelegate.swift in Sources */,
 				8B6FDD332134D25C005A23F6 /* UIButtonExtension.swift in Sources */,
+				8BE290EE213F066A00734826 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
