@@ -350,6 +350,25 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
 }
 
+func verifyValidSensorId (id: String) -> String {
+    let cleanSensorId = id.components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+    var mask = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+    var result = ""
+    var index = cleanSensorId.startIndex
+    for ch in mask.characters {
+        if index == cleanSensorId.endIndex {
+            break
+        }
+        if ch == "X" {
+            result.append(cleanSensorId[index])
+            index = cleanSensorId.index(after: index)
+        } else {
+            result.append(ch)
+        }
+    }
+    return result
+}
+
 extension ViewController : UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
