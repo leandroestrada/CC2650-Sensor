@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B239A95212CBF2C00DA5E5F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B239A94212CBF2C00DA5E5F /* AVFoundation.framework */; };
+		8B29EE542141B1DB003D8EA7 /* UserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29EE532141B1DB003D8EA7 /* UserInputViewController.swift */; };
 		8B51258B2125083600F66E5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51258A2125083600F66E5B /* AppDelegate.swift */; };
 		8B51258D2125083600F66E5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51258C2125083600F66E5B /* ViewController.swift */; };
 		8B5125902125083600F66E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B51258E2125083600F66E5B /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		8B239A94212CBF2C00DA5E5F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8B29EE532141B1DB003D8EA7 /* UserInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputViewController.swift; sourceTree = "<group>"; };
 		8B5125872125083600F66E5B /* CC2650.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CC2650.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B51258A2125083600F66E5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B51258C2125083600F66E5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				8BE290ED213F066A00734826 /* Utils.swift */,
 				8B51258A2125083600F66E5B /* AppDelegate.swift */,
 				8B51258C2125083600F66E5B /* ViewController.swift */,
+				8B29EE532141B1DB003D8EA7 /* UserInputViewController.swift */,
 				8B51258E2125083600F66E5B /* Main.storyboard */,
 				8B5125912125083E00F66E5B /* Assets.xcassets */,
 				8B5125932125083E00F66E5B /* LaunchScreen.storyboard */,
@@ -282,6 +285,7 @@
 				8B51258B2125083600F66E5B /* AppDelegate.swift in Sources */,
 				8B6FDD332134D25C005A23F6 /* UIButtonExtension.swift in Sources */,
 				8BE290EE213F066A00734826 /* Utils.swift in Sources */,
+				8B29EE542141B1DB003D8EA7 /* UserInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
